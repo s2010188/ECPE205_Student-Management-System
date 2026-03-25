@@ -40,7 +40,7 @@ public class SearchStudentPanel extends JPanel {
     JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
     searchPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
-    searchPanel.add(new JLabel("Search by name, ID, course:"));
+    searchPanel.add(new JLabel("Search by ID, name,  course:"));
     searchField = new JTextField(20);
     searchPanel.add(searchField);
 
@@ -90,7 +90,12 @@ public class SearchStudentPanel extends JPanel {
 
     for (Student s : allStudents) {
       if (s.getId().toLowerCase().contains(query)
-          || s.getName().toLowerCase().contains(query)) {
+          || s.getName().toLowerCase().contains(query)
+              || String.valueOf(s.getAge()).contains(query)
+              || s.getEmail().toLowerCase().contains(query)
+              || s.getCourse().toLowerCase().contains(query)
+              || s.getYearLevel().toLowerCase().contains(query)
+              || s.getContactNumber().toLowerCase().contains(query)) {
         results.add(s);
       }
     }
