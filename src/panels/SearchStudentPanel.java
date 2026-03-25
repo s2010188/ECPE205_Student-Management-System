@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class SearchStudentPanel extends JPanel {
   private JTextField searchField;
   private JTextArea resultArea;
+  private JTable table;
 //  private JTable resultTable;
 
 
@@ -40,7 +41,7 @@ public class SearchStudentPanel extends JPanel {
     JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
     searchPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
-    searchPanel.add(new JLabel("Search by name, ID, course:"));
+    searchPanel.add(new JLabel("Search by ID, name,  course:"));
     searchField = new JTextField(20);
     searchPanel.add(searchField);
 
@@ -90,13 +91,18 @@ public class SearchStudentPanel extends JPanel {
 
     for (Student s : allStudents) {
       if (s.getId().toLowerCase().contains(query)
-          || s.getName().toLowerCase().contains(query)) {
+          || s.getName().toLowerCase().contains(query)
+              || String.valueOf(s.getAge()).contains(query)
+              || s.getEmail().toLowerCase().contains(query)
+              || s.getCourse().toLowerCase().contains(query)
+              || s.getYearLevel().toLowerCase().contains(query)
+              || s.getContactNumber().toLowerCase().contains(query)) {
         results.add(s);
       }
     }
 
     if (results.isEmpty()) {
-      resultArea.setText("No students found matching: \"" + searchField.getText().trim() + "\"");
+      resultArea.setText("no results are found: \"" + searchField.getText().trim() + "\"");
     } else {
       StringBuilder sb = new StringBuilder();
       sb.append(String.format("%-15s %-25s %-5s%n", "ID", "Name", "Age"));
