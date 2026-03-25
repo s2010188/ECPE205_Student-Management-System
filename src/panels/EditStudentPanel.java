@@ -195,6 +195,7 @@ public class EditStudentPanel extends JPanel {
     }
   }
 
+
   private void clearFields() {
     idField.setText("");
     nameField.setText("");

@@ -42,7 +42,6 @@ public class ViewStudentsPanel extends JPanel {
         return false; // Read-only table
       }
 
-
     };
     table = new JTable(tableModel);
     table.setRowHeight(25);
