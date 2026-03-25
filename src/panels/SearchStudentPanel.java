@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class SearchStudentPanel extends JPanel {
   private JTextField searchField;
   private JTextArea resultArea;
+  private JTable table;
 //  private JTable resultTable;
 
 
@@ -101,7 +102,7 @@ public class SearchStudentPanel extends JPanel {
     }
 
     if (results.isEmpty()) {
-      resultArea.setText("No students found matching: \"" + searchField.getText().trim() + "\"");
+      resultArea.setText("no results are found: \"" + searchField.getText().trim() + "\"");
     } else {
       StringBuilder sb = new StringBuilder();
       sb.append(String.format("%-15s %-25s %-5s%n", "ID", "Name", "Age"));
