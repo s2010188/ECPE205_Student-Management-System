@@ -158,7 +158,6 @@ public class EditStudentPanel extends JPanel {
     int age;
     try {
       age = Integer.parseInt(ageText);
-
       if (age <= 0) {
         throw new NumberFormatException();
       }
@@ -170,10 +169,9 @@ public class EditStudentPanel extends JPanel {
     }
 
     if(!email.contains("@") || !email.contains(".")){
-      JOptionPane.showMessageDialog(this,"Invalid email");
+      JOptionPane.showMessageDialog(this,"Invalid Email!");
       return;
     }
-
 
     Student student = DataStore.getInstance().getAllStudents().get(row);
     student.setName(name);
