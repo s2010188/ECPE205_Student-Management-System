@@ -77,6 +77,7 @@ public class DashboardPanel extends JPanel {
     centerPanel.add(refreshBtn);
 
     add(centerPanel, BorderLayout.CENTER);
+
   }
 
   private void refreshData() {
