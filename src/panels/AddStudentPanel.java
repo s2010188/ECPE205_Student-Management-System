@@ -42,7 +42,8 @@ public class AddStudentPanel extends JPanel {
     formPanel.setBorder(BorderFactory.createEmptyBorder(10, 40, 10, 40));
     GridBagConstraints gbc = new GridBagConstraints();
     gbc.insets = new Insets(8, 8, 8, 8);
-    gbc.fill = GridBagConstraints.HORIZONTAL;
+    gbc.fill = GridBagConstraints.NONE;
+    gbc.anchor = GridBagConstraints.CENTER;
 
     // Student ID
     gbc.gridx = 0;
@@ -76,7 +77,9 @@ public class AddStudentPanel extends JPanel {
     ageField = new JTextField(20);
     formPanel.add(ageField, gbc);
 
-    add(formPanel, BorderLayout.CENTER);
+    JPanel center = new JPanel(new GridBagLayout());
+    center.add(formPanel);
+    add(center, BorderLayout.CENTER);
 
       // email
       gbc.gridx = 0;
