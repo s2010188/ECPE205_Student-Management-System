@@ -15,8 +15,44 @@ public class Student {
   private String id;
   private String name;
   private int age;
+  private String email;
+  private String course;
+  private int yearLevel;
+  private int contactNumber;
 
-  public Student(String id, String name, int age) {
+    public int getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(int contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public int getYearLevel() {
+        return yearLevel;
+    }
+
+    public void setYearLevel(int yearLevel) {
+        this.yearLevel = yearLevel;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Student(String id, String name, int age) {
     this.id = id;
     this.name = name;
     this.age = age;
@@ -48,6 +84,8 @@ public class Student {
     this.age = age;
   }
 
+
+
   @Override
   public String toString() {
     return id + " - " + name + " (Age: " + age + ")";
@@ -57,6 +95,6 @@ public class Student {
    * Returns student data as an Object array, useful for JTable rows.
    */
   public Object[] toTableRow() {
-    return new Object[] { id, name, age };
+    return new Object[] { id, name, age, email, course, yearLevel, contactNumber};
   }
 }
