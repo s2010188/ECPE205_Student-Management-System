@@ -24,7 +24,6 @@ public class MainFrame extends JFrame {
 
   public MainFrame() {
     setTitle("Student Management System");
-
     ImageIcon icon= new ImageIcon(getClass().getResource("/images/icon.png"));
     setIconImage(icon.getImage());
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,7 +38,7 @@ public class MainFrame extends JFrame {
 
     getContentPane().setBackground(white);
 
-    //Men
+    //Menu
     JMenuBar menuBar= new JMenuBar();
     menuBar.setBackground(white);
 
