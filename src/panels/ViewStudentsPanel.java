@@ -38,6 +38,7 @@ public class ViewStudentsPanel extends JPanel {
     title.setBorder(BorderFactory.createEmptyBorder(20, 0, 10, 0));
     add(title, BorderLayout.NORTH);
 
+
     // Table
     String[] columns = { "Student ID", "Name", "Age", "Email", "Course", "YearLevel", "ContactNumber"};
     tableModel = new DefaultTableModel(columns, 0) {
