@@ -205,6 +205,7 @@ public class EditStudentPanel extends JPanel {
       JOptionPane.showMessageDialog(this, "Student deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
       loadData();
     }
+
   }
 
 
