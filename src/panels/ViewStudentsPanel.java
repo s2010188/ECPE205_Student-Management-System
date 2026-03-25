@@ -91,27 +91,6 @@ public class ViewStudentsPanel extends JPanel {
 
   }
 
-    int noOfClicks = 1;
-    public void arrange(){
 
-        TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
-        table.setRowSorter(sorter);
-        List<RowSorter.SortKey> sortKeys = new ArrayList<>();
-
-        int columnIndexToSort = 1;
-        if (noOfClicks%2==0){
-
-            sortKeys.add(new RowSorter.SortKey(columnIndexToSort,   SortOrder.ASCENDING));
-
-        }else{
-            sortKeys.add(new RowSorter.SortKey(columnIndexToSort, SortOrder.DESCENDING));
-        }
-        ++noOfClicks;
-
-
-        sorter.setSortKeys(sortKeys);
-        sorter.sort();
-
-    }
 
 }
