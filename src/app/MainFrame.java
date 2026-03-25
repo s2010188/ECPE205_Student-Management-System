@@ -32,7 +32,7 @@ public class MainFrame extends JFrame {
     setLocationRelativeTo(null); // Center on screen
 
     Color green = Color.decode("#0640B");
-    Color white = Color.decode("#FFFFFF");
+    Color white = Color.white;
 
     getContentPane().setBackground(white);
 
