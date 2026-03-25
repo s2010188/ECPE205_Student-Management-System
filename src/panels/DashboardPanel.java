@@ -25,7 +25,7 @@ public class DashboardPanel extends JPanel {
     setBackground(Color.decode("#E8F5E9"));
 
     Color green= Color.decode("#0640B");
-    Color white= Color.white;
+    Color white= Color.decode("FFFFFF");
 
 
     // Title
