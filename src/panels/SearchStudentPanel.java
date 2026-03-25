@@ -4,6 +4,7 @@ import model.DataStore;
 import model.Student;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
@@ -24,8 +25,8 @@ import java.util.ArrayList;
 public class SearchStudentPanel extends JPanel {
   private JTextField searchField;
   private JTextArea resultArea;
-  private JTable table;
-//  private JTable resultTable;
+  private JTable resultTable;
+  private DefaultTableModel tableModel;
 
 
   public SearchStudentPanel() {
@@ -52,7 +53,8 @@ public class SearchStudentPanel extends JPanel {
     JButton clearBtn = new JButton("Clear Search");
     clearBtn.addActionListener(e -> {
       searchField.setText("");
-      resultArea.setText("");
+//      resultArea.setText("");
+      tableModel.setRowCount(0);
     });
     searchPanel.add(clearBtn);
 
@@ -68,12 +70,30 @@ public class SearchStudentPanel extends JPanel {
     resultsWrapper.add(resultsLabel, BorderLayout.NORTH);
 
 
-    resultArea = new JTextArea();
-    resultArea.setEditable(false);
-    resultArea.setFont(new Font("Monospaced", Font.PLAIN,14));
-    JScrollPane scrollPane = new JScrollPane(resultArea);
-    resultsWrapper.add(scrollPane, BorderLayout.CENTER);
+//    resultArea = new JTextArea();
+//    resultArea.setEditable(false);
+//    resultArea.setFont(new Font("Monospaced", Font.PLAIN,14));
+//    JScrollPane scrollPane = new JScrollPane(resultArea);
+//    resultsWrapper.add(scrollPane, BorderLayout.CENTER);
+//
+//    add(resultsWrapper, BorderLayout.CENTER);
+    JLabel resultLabel = new JLabel("Results: ");
+    resultLabel.setFont(new Font("Arial", Font.BOLD, 14));
+    resultsWrapper.add(resultLabel, BorderLayout.CENTER);
 
+    String[] columnLabels = {"ID", "Name", "Age", "Course", "Email"};
+    tableModel = new DefaultTableModel(columnLabels, 0){
+      @Override
+      public boolean isCellEditable(int row, int col){
+        return false;
+      }
+    };
+
+    resultTable = new JTable(tableModel);
+    resultTable.setFillsViewportHeight(true);
+    JScrollPane scrollPane = new JScrollPane(resultTable);
+
+    resultsWrapper.add(scrollPane, BorderLayout.CENTER);
     add(resultsWrapper, BorderLayout.CENTER);
   }
 
@@ -102,16 +122,23 @@ public class SearchStudentPanel extends JPanel {
     }
 
     if (results.isEmpty()) {
-      resultArea.setText("no results are found: \"" + searchField.getText().trim() + "\"");
+//      resultArea.setText("no results are found: \"" + searchField.getText().trim() + "\"");
+      JOptionPane.showMessageDialog(this,"no results are found: \"" + searchField.getText().trim() + "\"" );
     } else {
-      StringBuilder sb = new StringBuilder();
-      sb.append(String.format("%-15s %-25s %-5s%n", "ID", "Name", "Age"));
-      sb.append("-".repeat(45)).append("\n");
-      for (Student s : results) {
-        sb.append(String.format("%-15s %-25s %-5d%n", s.getId(), s.getName(), s.getAge()));
+//      StringBuilder sb = new StringBuilder();
+//      sb.append(String.format("%-15s %-25s %-5s%n", "ID", "Name", "Age"));
+//      sb.append("-".repeat(45)).append("\n");
+//      for (Student s : results) {
+//        sb.append(String.format("%-15s %-25s %-5d%n", s.getId(), s.getName(), s.getAge()));
+//      }
+//      sb.append("\nFound ").append(results.size()).append(" result(s).");
+//      resultArea.setText(sb.toString());
+      for (Student el : results){
+        Object[] row = {
+          el.getId(), el.getName(), el.getAge(), el.getCourse(), el.getEmail()
+        };
+        tableModel.addRow(row);
       }
-      sb.append("\nFound ").append(results.size()).append(" result(s).");
-      resultArea.setText(sb.toString());
     }
   }
 }
