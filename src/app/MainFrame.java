@@ -25,11 +25,37 @@ public class MainFrame extends JFrame {
   public MainFrame() {
     setTitle("Student Management System");
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    setSize(800, 600);
-    setMinimumSize(new Dimension(700, 500));
+    setSize(1000, 600);
+    setMinimumSize(new Dimension(800, 500));
 
 
     setLocationRelativeTo(null); // Center on screen
+
+    Color green = Color.decode("#0640B");
+    Color white = Color.decode("#FFFFFF");
+
+    getContentPane().setBackground(white);
+
+    //Menu
+    JMenuBar menuBar= new JMenuBar();
+    menuBar.setBackground(white);
+
+    JMenu fileMenu = new JMenu("File");
+    JMenuItem exitItem= new JMenuItem("Exit");
+    exitItem.addActionListener(e -> System.exit(0));
+
+    fileMenu.add(exitItem);
+
+    JMenu helpMenu= new JMenu("Help");
+    JMenuItem aboutItem = new JMenuItem("About");
+    aboutItem.addActionListener(e ->JOptionPane.showMessageDialog(this, "Student Management SYstem rsakrr") );
+
+    helpMenu.add(aboutItem);
+    menuBar.add(fileMenu);
+    menuBar.add(helpMenu);
+
+    setJMenuBar(menuBar);
+
 
     // --- Tabbed Pane: each tab is owned by a different student ---
     JTabbedPane tabbedPane = new JTabbedPane();
@@ -39,7 +65,8 @@ public class MainFrame extends JFrame {
     tabbedPane.addTab("View Students", new ViewStudentsPanel());
     tabbedPane.addTab("Search Student", new SearchStudentPanel());
     tabbedPane.addTab("Edit / Delete", new EditStudentPanel());
-    tabbedPane.setForeground(Color.blue);
+
+
 
 
     add(tabbedPane, BorderLayout.CENTER);
