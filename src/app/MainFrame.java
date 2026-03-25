@@ -53,6 +53,7 @@ public class MainFrame extends JFrame {
 
     helpMenu.add(aboutItem);
     menuBar.add(fileMenu);
+
     menuBar.add(helpMenu);
 
     setJMenuBar(menuBar);
