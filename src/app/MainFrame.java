@@ -27,6 +27,10 @@ public class MainFrame extends JFrame {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setSize(800, 600);
     setMinimumSize(new Dimension(700, 500));
+    setForeground(Color.blue);
+
+
+
     setLocationRelativeTo(null); // Center on screen
 
     // --- Tabbed Pane: each tab is owned by a different student ---
