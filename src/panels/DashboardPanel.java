@@ -71,7 +71,7 @@ public class DashboardPanel extends JPanel {
 
     JButton refreshBtn = new JButton("Refresh");
     refreshBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
-    refreshBtn.setBackground(green);
+
     refreshBtn.setFocusPainted(false);
     refreshBtn.addActionListener(e -> refreshData());
     centerPanel.add(refreshBtn);
