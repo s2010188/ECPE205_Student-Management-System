@@ -22,11 +22,16 @@ public class DashboardPanel extends JPanel {
 
   public DashboardPanel() {
     setLayout(new BorderLayout());
+    setBackground(Color.decode("#E8F5E9"));
+
+    Color green= Color.decode("#0640B");
+    Color white= Color.decode("#FFFFFF");
+
 
 
     // Title
     JLabel title = new JLabel("Dashboard", SwingConstants.CENTER);
-    title.setForeground(Color.blue);
+    title.setForeground(Color.green);
     title.setFont(new Font("Arial", Font.BOLD, 28));
     title.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
     add(title, BorderLayout.NORTH);
@@ -36,31 +41,39 @@ public class DashboardPanel extends JPanel {
     // Center content
     JPanel centerPanel = new JPanel();
     centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+    centerPanel.setBackground(Color.white);
     centerPanel.setBorder(BorderFactory.createEmptyBorder(30, 40, 20, 40));
 
     JLabel welcomeLabel = new JLabel("WELCOME TO STUDENT MANAGEMENT SYSTEM");
-    welcomeLabel.setForeground(Color.black);
+    welcomeLabel.setForeground(green);
     welcomeLabel.setFont(new Font("Arial", Font.ITALIC, 20));
     welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
     centerPanel.add(welcomeLabel);
 
+    centerPanel.add(Box.createVerticalStrut(30));
+
     JLabel summaryLabel = new JLabel("Summary");
-    summaryLabel.setForeground(Color.black);
-    summaryLabel.setFont(new Font("Arial", Font.ITALIC, 20));
+    summaryLabel.setForeground(Color.green);
+    summaryLabel.setFont(new Font("Arial", Font.BOLD, 20));
     summaryLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
     centerPanel.add(summaryLabel);
+
+    centerPanel.add(Box.createVerticalStrut(30));
 
 
 
     countLabel = new JLabel("Total Students: " + DataStore.getInstance().getCount());
     countLabel.setFont(new Font("Arial", Font.PLAIN, 18));
+    countLabel.setForeground(Color.decode("#1B5E20"));
     countLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
     centerPanel.add(countLabel);
 
-    centerPanel.add(Box.createVerticalStrut(20));
+    centerPanel.add(Box.createVerticalStrut(30));
 
     JButton refreshBtn = new JButton("Refresh");
     refreshBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+    refreshBtn.setFocusPainted(false);
     refreshBtn.addActionListener(e -> refreshData());
     centerPanel.add(refreshBtn);
 

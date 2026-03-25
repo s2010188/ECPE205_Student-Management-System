@@ -24,6 +24,9 @@ public class MainFrame extends JFrame {
 
   public MainFrame() {
     setTitle("Student Management System");
+
+    ImageIcon icon= new ImageIcon(getClass().getResource("/images/icon.png"));
+    setIconImage(icon.getImage());
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setSize(1000, 600);
     setMinimumSize(new Dimension(800, 500));
@@ -32,12 +35,11 @@ public class MainFrame extends JFrame {
     setLocationRelativeTo(null); // Center on screen
 
     Color green = Color.decode("#0640B");
-    Color white = Color.white;
+    Color white = Color.decode("#FFFFFF");
 
     getContentPane().setBackground(white);
 
-
-    //Menu
+    //Men
     JMenuBar menuBar= new JMenuBar();
     menuBar.setBackground(white);
 
@@ -49,11 +51,10 @@ public class MainFrame extends JFrame {
 
     JMenu helpMenu= new JMenu("Help");
     JMenuItem aboutItem = new JMenuItem("About");
-    aboutItem.addActionListener(e ->JOptionPane.showMessageDialog(this, "Student Management SYstem rsakrr") );
+    aboutItem.addActionListener(e ->JOptionPane.showMessageDialog(this, "Student Management System RSAKRR") );
 
     helpMenu.add(aboutItem);
     menuBar.add(fileMenu);
-
     menuBar.add(helpMenu);
 
     setJMenuBar(menuBar);
