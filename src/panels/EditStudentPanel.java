@@ -50,6 +50,7 @@ public class EditStudentPanel extends JPanel {
       if (!e.getValueIsAdjusting()) {
         populateFields();
       }
+
     });
 
     JScrollPane scrollPane = new JScrollPane(table);
@@ -74,7 +75,7 @@ public class EditStudentPanel extends JPanel {
     formPanel.add(ageField);
 
     formPanel.add(new JLabel("Email:"));
-    emailField = new JTextField(5);
+    emailField = new JTextField(20);
     formPanel.add(emailField);
 
     formPanel.add(new JLabel("Course:"));
@@ -127,6 +128,11 @@ public class EditStudentPanel extends JPanel {
       idField.setText(tableModel.getValueAt(row, 0).toString());
       nameField.setText(tableModel.getValueAt(row, 1).toString());
       ageField.setText(tableModel.getValueAt(row, 2).toString());
+      emailField.setText(tableModel.getValueAt(row, 3).toString());
+      courseField.setText(tableModel.getValueAt(row, 4).toString());
+      yearField.setText(tableModel.getValueAt(row, 5).toString());
+      numberField.setText(tableModel.getValueAt(row, 6).toString());
+
     }
   }
 
@@ -150,14 +156,10 @@ public class EditStudentPanel extends JPanel {
     }
 
     int age;
-    int contact;
-    int year;
     try {
       age = Integer.parseInt(ageText);
-      contact = Integer.parseInt(contactText);
-      year = Integer.parseInt(yearText);
     } catch (NumberFormatException ex) {
-      JOptionPane.showMessageDialog(this, "Age and ContactNumber must be a valid number.", "Validation Error",
+      JOptionPane.showMessageDialog(this, "Age must be a valid number.", "Validation Error",
           JOptionPane.WARNING_MESSAGE);
       return;
     }
@@ -167,8 +169,8 @@ public class EditStudentPanel extends JPanel {
     student.setAge(age);
     student.setEmail(email);
     student.setCourse(course);
-    student.setYearLevel(year);
-    student.setContactNumber(contact);
+    student.setYearLevel(yearText);
+    student.setContactNumber(contactText);
 
 
     JOptionPane.showMessageDialog(this, "Student updated.", "Success", JOptionPane.INFORMATION_MESSAGE);

@@ -41,10 +41,13 @@ public class ViewStudentsPanel extends JPanel {
       public boolean isCellEditable(int row, int column) {
         return false; // Read-only table
       }
+
+
     };
     table = new JTable(tableModel);
     table.setRowHeight(25);
-    table.getTableHeader().setReorderingAllowed(false);
+    table.getTableHeader().setReorderingAllowed(true);
+    table.setBackground(Color.LIGHT_GRAY);
 
     JScrollPane scrollPane = new JScrollPane(table);
     scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
@@ -67,6 +70,7 @@ public class ViewStudentsPanel extends JPanel {
     List<Student> students = DataStore.getInstance().getAllStudents();
     for (Student s : students) {
       tableModel.addRow(s.toTableRow());
+
     }
   }
 }
