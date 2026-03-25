@@ -5,7 +5,7 @@ import model.Student;
 
 import javax.swing.*;
 import java.awt.*;
-
+//changes
 /**
  * Panel for adding a new student.
  * 
