@@ -28,6 +28,7 @@ public class DashboardPanel extends JPanel {
     Color white= Color.decode("#FFFFFF");
 
 
+
     // Title
     JLabel title = new JLabel("Dashboard", SwingConstants.CENTER);
     title.setForeground(Color.green);
