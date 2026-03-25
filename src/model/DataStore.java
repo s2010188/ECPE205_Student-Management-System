@@ -21,9 +21,9 @@ public class DataStore {
   private DataStore() {
     students = new ArrayList<>();
     // Pre-load some sample data for testing
-    students.add(new Student("2024-0001", "Juan Dela Cruz", 20));
-    students.add(new Student("2024-0002", "Maria Santos", 19));
-    students.add(new Student("2024-0003", "Jose Rizal", 21));
+    students.add(new Student("2024-0001", "Juan Dela Cruz", 20, "juandelacruz@gmail.com","ENCE-2",2,0));
+    students.add(new Student("2024-0002", "Maria Santos", 19,"mariasantos@gmail.com","ENCE-3",3,1));
+    students.add(new Student("2024-0003", "Jose Rizal", 21,"joserizal@gmail.com","ENCE-4",4,2));
   }
 
   /** Get the singleton instance */
@@ -62,4 +62,18 @@ public class DataStore {
   public int getCount() {
     return students.size();
   }
+
+  public Student searchByName(String name) {
+        for (Student s : students) {
+            if (s.getName().equals(name)) {
+                return s;
+            }
+        }
+        return null;
+    }
+
+
+
+
+
 }

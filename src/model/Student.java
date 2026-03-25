@@ -52,10 +52,15 @@ public class Student {
         this.email = email;
     }
 
-    public Student(String id, String name, int age) {
+    public Student(String id, String name, int age, String email, String course, int yearLevel, int contactNumber) {
     this.id = id;
     this.name = name;
     this.age = age;
+    this.email = email;
+    this.course = course;
+    this.yearLevel = yearLevel;
+    this.contactNumber = contactNumber;
+
   }
 
   // --- Getters ---
