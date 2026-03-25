@@ -158,11 +158,22 @@ public class EditStudentPanel extends JPanel {
     int age;
     try {
       age = Integer.parseInt(ageText);
+
+      if (age <= 0) {
+        throw new NumberFormatException();
+      }
+
     } catch (NumberFormatException ex) {
       JOptionPane.showMessageDialog(this, "Age must be a valid number.", "Validation Error",
           JOptionPane.WARNING_MESSAGE);
       return;
     }
+
+    if(!email.contains("@") || !email.contains(".")){
+      JOptionPane.showMessageDialog(this,"Invalid email");
+      return;
+    }
+
 
     Student student = DataStore.getInstance().getAllStudents().get(row);
     student.setName(name);
@@ -180,7 +191,7 @@ public class EditStudentPanel extends JPanel {
   private void deleteStudent() {
     int row = table.getSelectedRow();
     if (row < 0) {
-      JOptionPane.showMessageDialog(this, "Select a student to delete.", "Info", JOptionPane.INFORMATION_MESSAGE);
+      JOptionPane.showMessageDialog(this, "Select a student to delete", "Info", JOptionPane.INFORMATION_MESSAGE);
       return;
     }
 

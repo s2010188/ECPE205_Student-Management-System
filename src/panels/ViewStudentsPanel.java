@@ -27,6 +27,7 @@ import java.util.List;
 public class ViewStudentsPanel extends JPanel {
   private DefaultTableModel tableModel;
   private JTable table;
+  private JLabel emptyLabel;
 
   public ViewStudentsPanel() {
     setLayout(new BorderLayout());
@@ -48,9 +49,13 @@ public class ViewStudentsPanel extends JPanel {
     };
     table = new JTable(tableModel);
     table.setRowHeight(25);
-    table.getTableHeader().setReorderingAllowed(true);
+    table.setAutoCreateRowSorter(true);
 
-    table.setBackground(Color.LIGHT_GRAY);
+    table.setSelectionBackground(new Color(184, 207, 229));
+    table.setGridColor(Color.GRAY);
+    table.setForeground(Color.WHITE);
+    table.setBackground(Color.DARK_GRAY);
+    table.setSelectionForeground(Color.BLACK);
 
     JScrollPane scrollPane = new JScrollPane(table);
     scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
@@ -72,10 +77,17 @@ public class ViewStudentsPanel extends JPanel {
   private void loadData() {
     tableModel.setRowCount(0); // Clear table
     List<Student> students = DataStore.getInstance().getAllStudents();
+
+      if (students.isEmpty()) {
+          JOptionPane.showMessageDialog(this, "No records found");
+      return;
+    }
+
+
     for (Student s : students) {
       tableModel.addRow(s.toTableRow());
-
     }
+
   }
 
     int noOfClicks = 1;
