@@ -37,11 +37,11 @@ public class DashboardPanel extends JPanel {
     // Center content
     JPanel centerPanel = new JPanel();
     centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-    centerPanel.setBorder(BorderFactory.createEmptyBorder(20, 40, 20, 40));
+    centerPanel.setBorder(BorderFactory.createEmptyBorder(30, 40, 20, 40));
 
     JLabel welcomeLabel = new JLabel("WELCOME TO STUDENT MANAGEMENT SYSTEM");
     welcomeLabel.setForeground(Color.black);
-    welcomeLabel.setFont(new Font("Arial", Font.PLAIN, 18));
+    welcomeLabel.setFont(new Font("Arial", Font.ITALIC, 20));
     welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
     centerPanel.add(welcomeLabel);
 
