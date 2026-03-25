@@ -124,6 +124,7 @@ public class SearchStudentPanel extends JPanel {
 
     if (results.isEmpty()) {
 //      resultArea.setText("no results are found: \"" + searchField.getText().trim() + "\"");
+      //result
       JOptionPane.showMessageDialog(this,"no results are found: \"" + searchField.getText().trim() + "\"" );
     } else {
 //      StringBuilder sb = new StringBuilder();
@@ -143,3 +144,4 @@ public class SearchStudentPanel extends JPanel {
     }
   }
 }
+//commit
