@@ -51,6 +51,7 @@ public class ViewStudentsPanel extends JPanel {
     table.setRowHeight(25);
     table.setAutoCreateRowSorter(true);
 
+
     table.setSelectionBackground(new Color(184, 207, 229));
     table.setGridColor(Color.GRAY);
     table.setForeground(Color.WHITE);
