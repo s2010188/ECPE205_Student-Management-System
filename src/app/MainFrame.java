@@ -27,8 +27,6 @@ public class MainFrame extends JFrame {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setSize(800, 600);
     setMinimumSize(new Dimension(700, 500));
-    setForeground(Color.blue);
-
 
 
     setLocationRelativeTo(null); // Center on screen
@@ -41,8 +39,11 @@ public class MainFrame extends JFrame {
     tabbedPane.addTab("View Students", new ViewStudentsPanel());
     tabbedPane.addTab("Search Student", new SearchStudentPanel());
     tabbedPane.addTab("Edit / Delete", new EditStudentPanel());
+    tabbedPane.setForeground(Color.blue);
+
 
     add(tabbedPane, BorderLayout.CENTER);
+
   }
 
   public static void main(String[] args) {

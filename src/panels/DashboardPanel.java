@@ -24,7 +24,6 @@ public class DashboardPanel extends JPanel {
     setLayout(new BorderLayout());
 
 
-
     // Title
     JLabel title = new JLabel("Dashboard", SwingConstants.CENTER);
     title.setForeground(Color.blue);
@@ -46,9 +45,9 @@ public class DashboardPanel extends JPanel {
     centerPanel.add(welcomeLabel);
 
     JLabel summaryLabel = new JLabel("Summary");
-   summaryLabel.setForeground(Color.black);
-    summaryLabel.setFont(new Font("Arial", Font.ITALIC, 30));
-   summaryLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+    summaryLabel.setForeground(Color.black);
+    summaryLabel.setFont(new Font("Arial", Font.ITALIC, 20));
+    summaryLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
     centerPanel.add(summaryLabel);
 
 
