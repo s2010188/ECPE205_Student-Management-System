@@ -41,7 +41,7 @@ public class DashboardPanel extends JPanel {
 
     JLabel welcomeLabel = new JLabel("WELCOME TO STUDENT MANAGEMENT SYSTEM");
     welcomeLabel.setForeground(Color.black);
-    welcomeLabel.setFont(new Font("Arial", Font.ITALIC, 20));
+    welcomeLabel.setFont(new Font("Arial", Font.ITALIC, 21));
     welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
     centerPanel.add(welcomeLabel);
 
