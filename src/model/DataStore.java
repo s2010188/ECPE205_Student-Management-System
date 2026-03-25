@@ -63,24 +63,5 @@ public class DataStore {
     return students.size();
   }
 
-  public Student searchByName(String name) {
-        for (Student s : students) {
-            if (s.getName().equals(name)) {
-                return s;
-            }
-        }
-        return null;
-    }
-    public Student updateStudent(String name) {
-        for (Student s : students) {
-            if (s.getName().equals(name)) {
-                return s;
-            }
-        }
-        return null;
-    }
-
-
-
 
 }
