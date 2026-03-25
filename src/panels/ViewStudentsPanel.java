@@ -72,6 +72,7 @@ public class ViewStudentsPanel extends JPanel {
 
     // Load initial data
     loadData();
+
   }
 
   private void loadData() {
