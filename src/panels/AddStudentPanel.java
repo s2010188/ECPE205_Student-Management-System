@@ -1,5 +1,5 @@
 package panels;
-//new
+
 import model.DataStore;
 import model.Student;
 
@@ -8,9 +8,9 @@ import java.awt.*;
 //changes
 /**
  * Panel for adding a new student.
- * 
+ *
  * ASSIGNED TO: Student 3 (Add Student Feature Owner)
- * 
+ *
  * TODO for Student 3:
  * - Add more input fields matching the Student model (email, course, etc.) DONE
  * - Add input validation (e.g., ID not empty, age is a number, no duplicate
@@ -42,7 +42,8 @@ public class AddStudentPanel extends JPanel {
     formPanel.setBorder(BorderFactory.createEmptyBorder(10, 40, 10, 40));
     GridBagConstraints gbc = new GridBagConstraints();
     gbc.insets = new Insets(8, 8, 8, 8);
-    gbc.fill = GridBagConstraints.HORIZONTAL;
+    gbc.fill = GridBagConstraints.NONE;
+    gbc.anchor = GridBagConstraints.CENTER;
 
     // Student ID
     gbc.gridx = 0;
@@ -76,51 +77,53 @@ public class AddStudentPanel extends JPanel {
     ageField = new JTextField(20);
     formPanel.add(ageField, gbc);
 
-    add(formPanel, BorderLayout.CENTER);
+    JPanel center = new JPanel(new GridBagLayout());
+    center.add(formPanel);
+    add(center, BorderLayout.CENTER);
 
-      // email
-      gbc.gridx = 0;
-      gbc.gridy = 3;
-      gbc.weightx = 0;
-      formPanel.add(new JLabel("Email:"), gbc);
-      gbc.gridx = 1;
-      gbc.gridy = 3;
-      gbc.weightx = 1.0;
-      emailField = new JTextField(20);
-      formPanel.add(emailField, gbc);
+    // email
+    gbc.gridx = 0;
+    gbc.gridy = 3;
+    gbc.weightx = 0;
+    formPanel.add(new JLabel("Email:"), gbc);
+    gbc.gridx = 1;
+    gbc.gridy = 3;
+    gbc.weightx = 1.0;
+    emailField = new JTextField(20);
+    formPanel.add(emailField, gbc);
 
-      // course
-      gbc.gridx = 0;
-      gbc.gridy = 4;
-      gbc.weightx = 0;
-      formPanel.add(new JLabel("Course:"), gbc);
-      gbc.gridx = 1;
-      gbc.gridy = 4;
-      gbc.weightx = 1.0;
-      courseField = new JTextField(20);
-      formPanel.add(courseField, gbc);
+    // course
+    gbc.gridx = 0;
+    gbc.gridy = 4;
+    gbc.weightx = 0;
+    formPanel.add(new JLabel("Course:"), gbc);
+    gbc.gridx = 1;
+    gbc.gridy = 4;
+    gbc.weightx = 1.0;
+    courseField = new JTextField(20);
+    formPanel.add(courseField, gbc);
 
-      // yearLevel
-      gbc.gridx = 0;
-      gbc.gridy = 5;
-      gbc.weightx = 0;
-      formPanel.add(new JLabel("Year Level:"), gbc);
-      gbc.gridx = 1;
-      gbc.gridy = 5;
-      gbc.weightx = 1.0;
-      yearLevelField = new JTextField(20);
-      formPanel.add(yearLevelField, gbc);
+    // yearLevel
+    gbc.gridx = 0;
+    gbc.gridy = 5;
+    gbc.weightx = 0;
+    formPanel.add(new JLabel("Year Level:"), gbc);
+    gbc.gridx = 1;
+    gbc.gridy = 5;
+    gbc.weightx = 1.0;
+    yearLevelField = new JTextField(20);
+    formPanel.add(yearLevelField, gbc);
 
-      // contactNumber
-      gbc.gridx = 0;
-      gbc.gridy = 6;
-      gbc.weightx = 0;
-      formPanel.add(new JLabel("Contact Number:"), gbc);
-      gbc.gridx = 1;
-      gbc.gridy = 6;
-      gbc.weightx = 1.0;
-      contactNumberField = new JTextField(20);
-      formPanel.add(contactNumberField, gbc);
+    // contactNumber
+    gbc.gridx = 0;
+    gbc.gridy = 6;
+    gbc.weightx = 0;
+    formPanel.add(new JLabel("Contact Number:"), gbc);
+    gbc.gridx = 1;
+    gbc.gridy = 6;
+    gbc.weightx = 1.0;
+    contactNumberField = new JTextField(20);
+    formPanel.add(contactNumberField, gbc);
 
     // Button panel
     JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -154,7 +157,7 @@ public class AddStudentPanel extends JPanel {
     // Basic validation
     if (id.isEmpty() || name.isEmpty() || ageText.isEmpty()|| email.isEmpty()|| course.isEmpty()|| yearLevel.isEmpty()|| contactNumber.isEmpty()) {
       JOptionPane.showMessageDialog(this,
-          "Please fill in all fields.", "Validation Error", JOptionPane.WARNING_MESSAGE);
+              "Please fill in all fields.", "Validation Error", JOptionPane.WARNING_MESSAGE);
       return;
     }
 
@@ -163,20 +166,20 @@ public class AddStudentPanel extends JPanel {
       age = Integer.parseInt(ageText);
     } catch (NumberFormatException ex) {
       JOptionPane.showMessageDialog(this,
-          "Age must be a valid number.", "Validation Error", JOptionPane.WARNING_MESSAGE);
+              "Age must be a valid number.", "Validation Error", JOptionPane.WARNING_MESSAGE);
       return;
     }
 
     // Check for duplicate ID
     if (DataStore.getInstance().findById(id) != null) {
       JOptionPane.showMessageDialog(this,
-          "A student with this ID already exists.", "Duplicate ID", JOptionPane.WARNING_MESSAGE);
+              "A student with this ID already exists.", "Duplicate ID", JOptionPane.WARNING_MESSAGE);
       return;
     }
 
     DataStore.getInstance().addStudent(new Student(id, name, age, email, course, yearLevel, contactNumber));
     JOptionPane.showMessageDialog(this,
-        "Student added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            "Student added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
     clearFields();
   }
 
