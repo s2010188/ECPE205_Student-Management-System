@@ -141,6 +141,7 @@ public class EditStudentPanel extends JPanel {
     if (row < 0) {
       JOptionPane.showMessageDialog(this, "Select a student to update.", "Info", JOptionPane.INFORMATION_MESSAGE);
       return;
+
     }
 
     String name = nameField.getText().trim();
