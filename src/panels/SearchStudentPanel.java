@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  * Panel for searching students by ID or name.
- * 
+ *
  * ASSIGNED TO: Student 5 (Search Feature Owner)
  * 
  * TODO for Student 5:
@@ -81,7 +81,7 @@ public class SearchStudentPanel extends JPanel {
     resultLabel.setFont(new Font("Arial", Font.BOLD, 14));
     resultsWrapper.add(resultLabel, BorderLayout.CENTER);
 
-    String[] columnLabels = {"ID", "Name", "Age", "Course", "Email"};
+    String[] columnLabels = {"Student ID", "Name", "Age", "Email", "Course", "Year Level", "Contact Number"};
     tableModel = new DefaultTableModel(columnLabels, 0){
       @Override
       public boolean isCellEditable(int row, int col){
@@ -105,6 +105,7 @@ public class SearchStudentPanel extends JPanel {
           "Please enter a search term.", "Info", JOptionPane.INFORMATION_MESSAGE);
       return;
     }
+    tableModel.setRowCount(0);
 
     List<Student> allStudents = DataStore.getInstance().getAllStudents();
     List<Student> results = new ArrayList<>();
@@ -135,7 +136,7 @@ public class SearchStudentPanel extends JPanel {
 //      resultArea.setText(sb.toString());
       for (Student el : results){
         Object[] row = {
-          el.getId(), el.getName(), el.getAge(), el.getCourse(), el.getEmail()
+          el.getId(), el.getName(), el.getAge(), el.getEmail(), el.getCourse(), el.getYearLevel(), el.getContactNumber()
         };
         tableModel.addRow(row);
       }
