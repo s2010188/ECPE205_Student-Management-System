@@ -17,22 +17,22 @@ public class Student {
   private int age;
   private String email;
   private String course;
-  private int yearLevel;
-  private int contactNumber;
+  private String yearLevel;
+  private String contactNumber;
 
-    public int getContactNumber() {
+    public String getContactNumber() {
         return contactNumber;
     }
 
-    public void setContactNumber(int contactNumber) {
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 
-    public int getYearLevel() {
+    public String getYearLevel() {
         return yearLevel;
     }
 
-    public void setYearLevel(int yearLevel) {
+    public void setYearLevel(String yearLevel) {
         this.yearLevel = yearLevel;
     }
 
@@ -52,7 +52,7 @@ public class Student {
         this.email = email;
     }
 
-    public Student(String id, String name, int age, String email, String course, int yearLevel, int contactNumber) {
+    public Student(String id, String name, int age, String email, String course, String yearLevel, String contactNumber) {
     this.id = id;
     this.name = name;
     this.age = age;
