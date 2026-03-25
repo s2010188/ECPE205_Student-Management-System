@@ -35,20 +35,23 @@ public class ViewStudentsPanel extends JPanel {
     add(title, BorderLayout.NORTH);
 
     // Table
-    String[] columns = { "Student ID", "Name", "Age" };
+    String[] columns = { "Student ID", "Name", "Age", "Email", "Course", "YearLevel", "ContactNumber"};
     tableModel = new DefaultTableModel(columns, 0) {
       @Override
       public boolean isCellEditable(int row, int column) {
         return false; // Read-only table
       }
+
     };
     table = new JTable(tableModel);
     table.setRowHeight(25);
-    table.getTableHeader().setReorderingAllowed(false);
+    table.getTableHeader().setReorderingAllowed(true);
+    table.setBackground(Color.LIGHT_GRAY);
 
     JScrollPane scrollPane = new JScrollPane(table);
     scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
     add(scrollPane, BorderLayout.CENTER);
+
 
     // Refresh button
     JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -67,6 +70,7 @@ public class ViewStudentsPanel extends JPanel {
     List<Student> students = DataStore.getInstance().getAllStudents();
     for (Student s : students) {
       tableModel.addRow(s.toTableRow());
+
     }
   }
 }

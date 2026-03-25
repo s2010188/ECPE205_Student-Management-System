@@ -24,7 +24,7 @@ import java.util.List;
 public class EditStudentPanel extends JPanel {
   private DefaultTableModel tableModel;
   private JTable table;
-  private JTextField idField, nameField, ageField;
+  private JTextField idField, nameField, ageField, emailField, courseField, yearField, numberField;
 
   public EditStudentPanel() {
     setLayout(new BorderLayout());
@@ -36,7 +36,7 @@ public class EditStudentPanel extends JPanel {
     add(title, BorderLayout.NORTH);
 
     // Table
-    String[] columns = { "Student ID", "Name", "Age" };
+    String[] columns = { "Student ID", "Name", "Age", "Email", "Course", "YearLevel", "ContactNumber"};
     tableModel = new DefaultTableModel(columns, 0) {
       @Override
       public boolean isCellEditable(int row, int column) {
@@ -50,6 +50,7 @@ public class EditStudentPanel extends JPanel {
       if (!e.getValueIsAdjusting()) {
         populateFields();
       }
+
     });
 
     JScrollPane scrollPane = new JScrollPane(table);
@@ -72,6 +73,23 @@ public class EditStudentPanel extends JPanel {
     formPanel.add(new JLabel("Age:"));
     ageField = new JTextField(5);
     formPanel.add(ageField);
+
+    formPanel.add(new JLabel("Email:"));
+    emailField = new JTextField(20);
+    formPanel.add(emailField);
+
+    formPanel.add(new JLabel("Course:"));
+    courseField = new JTextField(5);
+    formPanel.add(courseField);
+
+    formPanel.add(new JLabel("YearLevel:"));
+    yearField = new JTextField(5);
+    formPanel.add(yearField);
+
+    formPanel.add(new JLabel("ContactNumber:"));
+    numberField = new JTextField(5);
+    formPanel.add(numberField);
+
 
     bottomPanel.add(formPanel, BorderLayout.CENTER);
 
@@ -110,6 +128,11 @@ public class EditStudentPanel extends JPanel {
       idField.setText(tableModel.getValueAt(row, 0).toString());
       nameField.setText(tableModel.getValueAt(row, 1).toString());
       ageField.setText(tableModel.getValueAt(row, 2).toString());
+      emailField.setText(tableModel.getValueAt(row, 3).toString());
+      courseField.setText(tableModel.getValueAt(row, 4).toString());
+      yearField.setText(tableModel.getValueAt(row, 5).toString());
+      numberField.setText(tableModel.getValueAt(row, 6).toString());
+
     }
   }
 
@@ -122,8 +145,12 @@ public class EditStudentPanel extends JPanel {
 
     String name = nameField.getText().trim();
     String ageText = ageField.getText().trim();
+    String email = emailField.getText().trim();
+    String course =courseField.getText().trim();
+    String yearText = yearField.getText().trim();
+    String contactText = numberField.getText().trim();
 
-    if (name.isEmpty() || ageText.isEmpty()) {
+    if (name.isEmpty() || ageText.isEmpty() || email.isEmpty() || course.isEmpty() || yearText.isEmpty() || contactText.isEmpty()) {
       JOptionPane.showMessageDialog(this, "Fields cannot be empty.", "Validation Error", JOptionPane.WARNING_MESSAGE);
       return;
     }
@@ -140,6 +167,11 @@ public class EditStudentPanel extends JPanel {
     Student student = DataStore.getInstance().getAllStudents().get(row);
     student.setName(name);
     student.setAge(age);
+    student.setEmail(email);
+    student.setCourse(course);
+    student.setYearLevel(yearText);
+    student.setContactNumber(contactText);
+
 
     JOptionPane.showMessageDialog(this, "Student updated.", "Success", JOptionPane.INFORMATION_MESSAGE);
     loadData();
@@ -152,6 +184,7 @@ public class EditStudentPanel extends JPanel {
       return;
     }
 
+
     int confirm = JOptionPane.showConfirmDialog(this,
         "Are you sure you want to delete this student?",
         "Confirm Delete", JOptionPane.YES_NO_OPTION);
@@ -163,9 +196,14 @@ public class EditStudentPanel extends JPanel {
     }
   }
 
+
   private void clearFields() {
     idField.setText("");
     nameField.setText("");
     ageField.setText("");
+    emailField.setText("");
+    courseField.setText("");
+    yearField.setText("");
+    numberField.setText("");
   }
 }
