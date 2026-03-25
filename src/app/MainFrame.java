@@ -32,10 +32,9 @@ public class MainFrame extends JFrame {
     setLocationRelativeTo(null); // Center on screen
 
     Color green = Color.decode("#0640B");
-    Color white = Color.white;
+    Color white = Color.decode("#FFFFFF");
 
     getContentPane().setBackground(white);
-
 
     //Menu
     JMenuBar menuBar= new JMenuBar();
@@ -53,7 +52,6 @@ public class MainFrame extends JFrame {
 
     helpMenu.add(aboutItem);
     menuBar.add(fileMenu);
-
     menuBar.add(helpMenu);
 
     setJMenuBar(menuBar);
