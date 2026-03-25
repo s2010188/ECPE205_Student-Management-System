@@ -134,6 +134,10 @@ public class AddStudentPanel extends JPanel {
     clearBtn.addActionListener(e -> clearFields());
     buttonPanel.add(clearBtn);
 
+    JButton addRst = new JButton("Reset");
+    addRst.addActionListener(e -> addStudent());
+    buttonPanel.add(addRst);
+
     add(buttonPanel, BorderLayout.SOUTH);
   }
 
@@ -148,7 +152,7 @@ public class AddStudentPanel extends JPanel {
 
 
     // Basic validation
-    if (id.isEmpty() || name.isEmpty() || ageText.isEmpty()) {
+    if (id.isEmpty() || name.isEmpty() || ageText.isEmpty()|| email.isEmpty()|| course.isEmpty()|| yearLevel.isEmpty()|| contactNumber.isEmpty()) {
       JOptionPane.showMessageDialog(this,
           "Please fill in all fields.", "Validation Error", JOptionPane.WARNING_MESSAGE);
       return;
@@ -180,5 +184,9 @@ public class AddStudentPanel extends JPanel {
     idField.setText("");
     nameField.setText("");
     ageField.setText("");
+    emailField.setText("");
+    courseField.setText("");
+    yearLevelField.setText("");
+    contactNumberField.setText("");
   }
 }
