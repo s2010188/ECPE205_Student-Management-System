@@ -50,7 +50,7 @@ public class MainFrame extends JFrame {
 
     JMenu helpMenu= new JMenu("Help");
     JMenuItem aboutItem = new JMenuItem("About");
-    aboutItem.addActionListener(e ->JOptionPane.showMessageDialog(this, "Student Management SYstem rsakrr") );
+    aboutItem.addActionListener(e ->JOptionPane.showMessageDialog(this, "Student Management System RSAKRR") );
 
     helpMenu.add(aboutItem);
     menuBar.add(fileMenu);
