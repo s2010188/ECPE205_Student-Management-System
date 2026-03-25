@@ -24,6 +24,8 @@ import java.util.ArrayList;
 public class SearchStudentPanel extends JPanel {
   private JTextField searchField;
   private JTextArea resultArea;
+//  private JTable resultTable;
+
 
   public SearchStudentPanel() {
     setLayout(new BorderLayout());
@@ -38,7 +40,7 @@ public class SearchStudentPanel extends JPanel {
     JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
     searchPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
-    searchPanel.add(new JLabel("Search by ID or Name:"));
+    searchPanel.add(new JLabel("Search by name, ID, course:"));
     searchField = new JTextField(20);
     searchPanel.add(searchField);
 
@@ -46,7 +48,7 @@ public class SearchStudentPanel extends JPanel {
     searchBtn.addActionListener(e -> performSearch());
     searchPanel.add(searchBtn);
 
-    JButton clearBtn = new JButton("Clear");
+    JButton clearBtn = new JButton("Clear Search");
     clearBtn.addActionListener(e -> {
       searchField.setText("");
       resultArea.setText("");
@@ -56,6 +58,7 @@ public class SearchStudentPanel extends JPanel {
     add(searchPanel, BorderLayout.NORTH);
 
     // Results area
+
     JPanel resultsWrapper = new JPanel(new BorderLayout());
     resultsWrapper.setBorder(BorderFactory.createEmptyBorder(10, 20, 20, 20));
 
@@ -63,9 +66,10 @@ public class SearchStudentPanel extends JPanel {
     resultsLabel.setFont(new Font("Arial", Font.BOLD, 14));
     resultsWrapper.add(resultsLabel, BorderLayout.NORTH);
 
+
     resultArea = new JTextArea();
     resultArea.setEditable(false);
-    resultArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
+    resultArea.setFont(new Font("Monospaced", Font.PLAIN,14));
     JScrollPane scrollPane = new JScrollPane(resultArea);
     resultsWrapper.add(scrollPane, BorderLayout.CENTER);
 

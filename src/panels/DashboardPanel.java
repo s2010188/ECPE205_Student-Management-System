@@ -23,16 +23,35 @@ public class DashboardPanel extends JPanel {
   public DashboardPanel() {
     setLayout(new BorderLayout());
 
+
+
     // Title
     JLabel title = new JLabel("Dashboard", SwingConstants.CENTER);
+    title.setForeground(Color.blue);
     title.setFont(new Font("Arial", Font.BOLD, 28));
     title.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
     add(title, BorderLayout.NORTH);
 
+
+
     // Center content
     JPanel centerPanel = new JPanel();
     centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-    centerPanel.setBorder(BorderFactory.createEmptyBorder(20, 40, 20, 40));
+    centerPanel.setBorder(BorderFactory.createEmptyBorder(30, 40, 20, 40));
+
+    JLabel welcomeLabel = new JLabel("WELCOME TO STUDENT MANAGEMENT SYSTEM");
+    welcomeLabel.setForeground(Color.black);
+    welcomeLabel.setFont(new Font("Arial", Font.ITALIC, 20));
+    welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+    centerPanel.add(welcomeLabel);
+
+    JLabel summaryLabel = new JLabel("Summary");
+   summaryLabel.setForeground(Color.black);
+    summaryLabel.setFont(new Font("Arial", Font.ITALIC, 30));
+   summaryLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+    centerPanel.add(summaryLabel);
+
+
 
     countLabel = new JLabel("Total Students: " + DataStore.getInstance().getCount());
     countLabel.setFont(new Font("Arial", Font.PLAIN, 18));

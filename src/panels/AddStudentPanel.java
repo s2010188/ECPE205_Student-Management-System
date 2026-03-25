@@ -1,5 +1,5 @@
 package panels;
-
+//new
 import model.DataStore;
 import model.Student;
 
@@ -12,7 +12,7 @@ import java.awt.*;
  * ASSIGNED TO: Student 3 (Add Student Feature Owner)
  * 
  * TODO for Student 3:
- * - Add more input fields matching the Student model (email, course, etc.)
+ * - Add more input fields matching the Student model (email, course, etc.) DONE
  * - Add input validation (e.g., ID not empty, age is a number, no duplicate
  * IDs)
  * - Show success/error messages using JOptionPane
@@ -126,7 +126,7 @@ public class AddStudentPanel extends JPanel {
     JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
     buttonPanel.setBorder(BorderFactory.createEmptyBorder(10, 0, 20, 0));
 
-    JButton addBtn = new JButton("Add Student");
+    JButton addBtn =  new JButton("Add Student");
     addBtn.addActionListener(e -> addStudent());
     buttonPanel.add(addBtn);
 
@@ -135,7 +135,7 @@ public class AddStudentPanel extends JPanel {
     buttonPanel.add(clearBtn);
 
     JButton addRst = new JButton("Reset");
-    addRst.addActionListener(e -> addStudent());
+    addRst.addActionListener(e -> clearFields());
     buttonPanel.add(addRst);
 
     add(buttonPanel, BorderLayout.SOUTH);
