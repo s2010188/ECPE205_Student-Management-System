@@ -184,6 +184,7 @@ public class EditStudentPanel extends JPanel {
       return;
     }
 
+
     int confirm = JOptionPane.showConfirmDialog(this,
         "Are you sure you want to delete this student?",
         "Confirm Delete", JOptionPane.YES_NO_OPTION);

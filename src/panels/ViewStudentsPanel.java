@@ -52,6 +52,7 @@ public class ViewStudentsPanel extends JPanel {
     scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
     add(scrollPane, BorderLayout.CENTER);
 
+
     // Refresh button
     JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
     buttonPanel.setBorder(BorderFactory.createEmptyBorder(5, 0, 15, 0));
