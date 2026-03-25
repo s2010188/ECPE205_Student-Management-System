@@ -24,7 +24,7 @@ import java.util.List;
 public class EditStudentPanel extends JPanel {
   private DefaultTableModel tableModel;
   private JTable table;
-  private JTextField idField, nameField, ageField;
+  private JTextField idField, nameField, ageField, emailField, courseField, yearField, numberField;
 
   public EditStudentPanel() {
     setLayout(new BorderLayout());
@@ -36,7 +36,7 @@ public class EditStudentPanel extends JPanel {
     add(title, BorderLayout.NORTH);
 
     // Table
-    String[] columns = { "Student ID", "Name", "Age" };
+    String[] columns = { "Student ID", "Name", "Age", "Email", "Course", "YearLevel", "ContactNumber"};
     tableModel = new DefaultTableModel(columns, 0) {
       @Override
       public boolean isCellEditable(int row, int column) {
@@ -72,6 +72,23 @@ public class EditStudentPanel extends JPanel {
     formPanel.add(new JLabel("Age:"));
     ageField = new JTextField(5);
     formPanel.add(ageField);
+
+    formPanel.add(new JLabel("Email:"));
+    emailField = new JTextField(5);
+    formPanel.add(emailField);
+
+    formPanel.add(new JLabel("Course:"));
+    courseField = new JTextField(5);
+    formPanel.add(courseField);
+
+    formPanel.add(new JLabel("YearLevel:"));
+    yearField = new JTextField(5);
+    formPanel.add(yearField);
+
+    formPanel.add(new JLabel("ContactNumber:"));
+    numberField = new JTextField(5);
+    formPanel.add(numberField);
+
 
     bottomPanel.add(formPanel, BorderLayout.CENTER);
 
@@ -122,17 +139,25 @@ public class EditStudentPanel extends JPanel {
 
     String name = nameField.getText().trim();
     String ageText = ageField.getText().trim();
+    String email = emailField.getText().trim();
+    String course =courseField.getText().trim();
+    String yearText = yearField.getText().trim();
+    String contactText = numberField.getText().trim();
 
-    if (name.isEmpty() || ageText.isEmpty()) {
+    if (name.isEmpty() || ageText.isEmpty() || email.isEmpty() || course.isEmpty() || yearText.isEmpty() || contactText.isEmpty()) {
       JOptionPane.showMessageDialog(this, "Fields cannot be empty.", "Validation Error", JOptionPane.WARNING_MESSAGE);
       return;
     }
 
     int age;
+    int contact;
+    int year;
     try {
       age = Integer.parseInt(ageText);
+      contact = Integer.parseInt(contactText);
+      year = Integer.parseInt(yearText);
     } catch (NumberFormatException ex) {
-      JOptionPane.showMessageDialog(this, "Age must be a valid number.", "Validation Error",
+      JOptionPane.showMessageDialog(this, "Age and ContactNumber must be a valid number.", "Validation Error",
           JOptionPane.WARNING_MESSAGE);
       return;
     }
@@ -140,6 +165,11 @@ public class EditStudentPanel extends JPanel {
     Student student = DataStore.getInstance().getAllStudents().get(row);
     student.setName(name);
     student.setAge(age);
+    student.setEmail(email);
+    student.setCourse(course);
+    student.setYearLevel(year);
+    student.setContactNumber(contact);
+
 
     JOptionPane.showMessageDialog(this, "Student updated.", "Success", JOptionPane.INFORMATION_MESSAGE);
     loadData();
@@ -167,5 +197,9 @@ public class EditStudentPanel extends JPanel {
     idField.setText("");
     nameField.setText("");
     ageField.setText("");
+    emailField.setText("");
+    courseField.setText("");
+    yearField.setText("");
+    numberField.setText("");
   }
 }
